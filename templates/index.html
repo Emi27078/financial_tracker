@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Finances</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Purchases</h1>
+    <a href="/add">➕ Add Purchase</a>
+    <a href="/scan">📷 Scan Receipt</a>
+    <br><br>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Amount ($)</th>
+            <th>Date</th>
+        </tr>
+        {% for item in purchases %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ "%.2f"|format(item[2]) }}</td>
+            <td>{{ item[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if total %}
+    <br>
+    <strong>Total Spent: ${{ "%.2f"|format(total) }}</strong>
+    {% endif %}
+</body>
+</html>

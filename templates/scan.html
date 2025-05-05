@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scan Receipt</title>
+</head>
+<body>
+  <h1>Upload a Receipt to Scan</h1>
+  <form action="/scan" method="post" enctype="multipart/form-data">
+    <input type="file" name="receipt" accept="image/*" required><br><br>
+    <button type="submit">Scan and Save</button>
+  </form>
+  <a href="/">Back to Home</a>
+</body>
+</html>
